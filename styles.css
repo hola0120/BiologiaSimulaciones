@@ -1,0 +1,204 @@
+:root{
+    --color-primario:#60ad32;
+    --color-secundario:#88C153;
+    --color-terciario:#B0D473;
+    --color-cuartario:#D8E893;
+    --color-quinario:#FFFBB3;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    /* Layout y caja */
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 10;
+
+    /* Tipografía */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    color: white;
+
+    /* Fondo y color */
+    background-color: var(--color-primario);
+
+    /* Efectos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+main{
+    /*Layout*/
+    background-color: var(--color-quinario);
+    padding: 20px;
+    min-height: calc(100vh - 120px); /* Para que ocupe altura completa */
+    
+    /*Tipografía*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #4a8829
+}
+
+footer{
+    background-color: var(--color-primario);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px 20px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;    
+}
+
+hr {
+        height: 2px;
+        background-color: var(--color-primario); /* Sets the color of the line */
+        font-size: 0;
+        border: 0;
+    }
+
+.nav-button {
+      /* Reset */
+    text-decoration: none;
+    color: white;
+    
+    /* Diseño */
+    padding: 10px 50px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    /* Tipografía */
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    
+    /* Animación */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+    margin-left: auto; /* Empuja los botones hacia la derecha */
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Separación entre icono y título */
+}
+.titulo.header { /* Sin espacio entre las clases */
+    font-size: 20px;
+    /* Ya no necesitas margin-left porque usas gap en .header-left */
+}
+
+/*LISTAAA*/
+
+/* Estilos para la lista de simulaciones */
+.lista-simulaciones {
+    margin-top: 30px;
+}
+
+.titulo-lista {
+    font-size: 1.5em;
+    color: var(--color-primario);
+    text-decoration: none;
+    border-bottom: 3px solid var(--color-primario);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Estilos para las categorías principales */
+.categoria-principal {
+    background: linear-gradient(135deg, var(--color-secundario), var(--color-terciario));
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(96, 173, 50, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(96, 173, 50, 0.3);
+}
+
+.titulo-categoria {
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 20px;
+    background-color: var(--color-primario);
+    margin: 0;
+    text-decoration: none;
+    display: block;
+}
+
+/* Lista de enlaces */
+.lista-enlaces {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.enlace-simulacion {
+    display: block;
+    padding: 12px 20px;
+    color: var(--color-primario);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(96, 173, 50, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.enlace-simulacion:hover {
+    background-color: var(--color-cuartario);
+    padding-left: 30px;
+    color: #2d5016;
+    font-weight: 600;
+}
+
+.enlace-simulacion:last-child {
+    border-bottom: none;
+}
+
+/* Quitar estilos por defecto de ol */
+.lista-simulaciones ol {
+    list-style: none;
+    padding: 0;
+    counter-reset: categoria;
+}
+
+.categoria-principal {
+    counter-increment: categoria;
+}
+
+.titulo-categoria::before {
+    content: counter(categoria) ". ";
+    font-weight: bold;
+}
